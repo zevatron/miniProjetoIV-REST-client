@@ -1,4 +1,4 @@
-var urlRest = "http://filmerest.herokuapp.com/filmes";
+var urlRest = "https://filmerest.herokuapp.com/filmes";
 $(document).ready( function(){
   if (location.pathname == "/miniProjetoIV-REST-client/index.html" || location.pathname == "/miniProjetoIV-REST-client/"){
     listarFilmes();
