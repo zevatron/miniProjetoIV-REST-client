@@ -1,11 +1,9 @@
-var urlRest = "http://localhost:8080/filmes";
+var urlRest = "http://filmerest.herokuapp.com/filmes";
 $(document).ready( function(){
-  if (location.pathname == "/home/zevatron/Documentos/IFPB/6-PD/filmerestclient/index.html"){
-    console.log(window.location.pathname);
+  if (location.pathname == "/filmes/index.html"){
     listarFilmes();
-
   }
-  if (location.pathname == "/home/zevatron/Documentos/IFPB/6-PD/filmerestclient/edit.html") {
+  if (location.pathname == "filmes/edit.html") {
     buscarPorId();
     atualizar();
   }
@@ -36,7 +34,7 @@ function buscarPorId(id,tipo) {
   if(id==null){
     id = new URL(location).searchParams.get('id');
     if(id == null){
-      window.location.href = "file:///home/zevatron/Documentos/IFPB/6-PD/filmerestclient/index.html";
+      window.location.href = "index.html";
     }
   }
   // var tipo = new URL(location).searchParams.get('tipo')
@@ -70,7 +68,7 @@ function cadastrar() {
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
       success: function(data){
         console.log(data);
-        window.location.href = "file:///home/zevatron/Documentos/IFPB/6-PD/filmerestclient/index.html";
+        window.location.href = "index.html";
       },
       error: function(data){
         alert(data.responseText);
@@ -88,7 +86,7 @@ function atualizar() {
       url: urlAtualizar,
       success: function(data){
         console.log(data);
-        window.location.href = "file:///home/zevatron/Documentos/IFPB/6-PD/filmerestclient/index.html";
+        window.location.href = "index.html";
       }
     });
   });
@@ -103,7 +101,7 @@ function excluir(id) {
       url: urlExcluir,
       success: function(data){
         console.log(data);
-        window.location.href = "file:///home/zevatron/Documentos/IFPB/6-PD/filmerestclient/index.html";
+        window.location.href = "index.html";
       }
     });
   }
