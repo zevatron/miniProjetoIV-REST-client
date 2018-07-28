@@ -17,9 +17,9 @@ function listarFilmes() {
   $.ajax({
     url: urlRest+"/listar"
   }).then(function(data) {
+    var str = '<tr>';
     jQuery.each(data , function (i , filme) {
       console.log(filme);
-      var str = '<tr>';
       str += '<td>' + filme.titulo + '</td>';
       str += '<td>' + filme.diretor + '</td>';
       str += '<td>' + filme.estudio + '</td>';
@@ -30,8 +30,8 @@ function listarFilmes() {
       str += '<td>' + "<a href='"+urlRest+"?id="+filme.id+"&tipo=application/xml' >xml</a>" + '</td>';
       str += '<td>' + "<a href='"+urlRest+"?id="+filme.id+"&tipo=application/json' >json</a>" + '</td>';
       str += '</tr>';
-      $('#filmes').html(str);
     } );
+    $('#filmes').html(str);
   });
 };
 function buscarPorId(id,tipo) {
