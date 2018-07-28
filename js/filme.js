@@ -78,9 +78,13 @@ function cadastrar() {
 
 function pesquisar(){
   $('#pesquisar').click(function(){
+    if(!$('#search').val().trim()){
+      listarFilmes();
+      return;
+    }
     $.ajax({
       type: 'GET',
-      url: new URL(urlRest+"/"+$( "input[name='pesquisa']").val()+"/"+$('#search').val()),
+      url: new URL(urlRest+"/"+$( "input[name='pesquisa']:checked").val()+"/"+$('#search').val()),
       success: function(data){
         $('#filmes').html(data)
       }
