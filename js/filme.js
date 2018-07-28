@@ -1,9 +1,9 @@
 var urlRest = "http://filmerest.herokuapp.com/filmes";
 $(document).ready( function(){
-  if (location.pathname == "/filmes/index.html"){
+  if (location.pathname == "/miniProjetoIV-REST-client/index.html" || location.pathname == "/miniProjetoIV-REST-client/"){
     listarFilmes();
   }
-  if (location.pathname == "filmes/edit.html") {
+  if (location.pathname == "/miniProjetoIV-REST-client/edit.html") {
     buscarPorId();
     atualizar();
   }
