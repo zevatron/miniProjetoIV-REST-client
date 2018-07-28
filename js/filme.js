@@ -26,7 +26,7 @@ function listarFilmes() {
       str += '<td>' + "<a href='"+urlRest+"?id="+filme.id+"&tipo=application/xml' >xml</a>" + '</td>';
       str += '<td>' + "<a href='"+urlRest+"?id="+filme.id+"&tipo=application/json' >json</a>" + '</td>';
       str += '</tr>';
-      $('#filmes').append(str);
+      $('#filmes').html(str);
     } );
   });
 };
