@@ -76,6 +76,18 @@ function cadastrar() {
     });
 }
 
+function pesquisar(){
+  $('#pesquisar').click(function(){
+    $.ajax({
+      type: 'GET',
+      url: new URL(urlRest+"/"+$( "input[name='pesquisa']").val()+"/"+$('#search').val()),
+      success: function(data){
+        $('#filmes').html(data)
+      }
+    })
+  });
+}
+
 function atualizar() {
   $('#salvar').click(function(){
     var id = new URL(location).searchParams.get('id')

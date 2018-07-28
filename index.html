@@ -21,7 +21,33 @@
 </head>
 <body>
   <div class="container">
-    <div class="row" style="margin-top: 5%">
+    <div class="row" style=" position: absolute; right: 0px">
+      <input type="search" name="search" id="search" >
+      <button type="button" name="button" class="button-primary" onclick="pesquisar()" id="pesquisar"><i class="fas fa-search"></i></button>
+      <div>
+        <label for="pTitulo" style="display: inline;">
+          <input type="radio" name="pesquisa" value="titulo" id="pTitulo" checked>
+           <span class="label-body"> Título </span>
+        </label>
+        <label for="pDiretor" style="display: inline;">
+          <input type="radio" name="pesquisa" value="diretor" id="pDiretor">
+          <span class="label-body">Diretor</span>
+        </label>
+        <label for="pEstudio" style="display: inline;">
+          <input type="radio" name="pesquisa" value="estudio" id="pEstudio">
+          <span class="label-body">Estúdio</span>
+        </label>
+        <label for="pGenero" style="display: inline;">
+          <input type="radio" name="pesquisa" value="genero" id="pGenero">
+          <span class="label-body">Gênero</span>
+        </label>
+        <label for="pAno" style="display: inline"  >
+          <input type="radio" name="pesquisa" value="ano" id="pAno"  >
+          <span class="label-body">Ano</span>
+        </label>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 5%;" >
         <h4>Filmes</h4>
         <a href="add.html" class="button button-primary "> <i class="fas fa-plus"></i>Cadastrar </a>
         <table class="u-full-width">
