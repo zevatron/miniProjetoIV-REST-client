@@ -9,6 +9,10 @@ $(document).ready( function(){
   }
 });
 
+function home(){
+  window.location.href = "index.html";
+}
+
 function listarFilmes() {
   $.ajax({
     url: urlRest+"/listar"
@@ -34,7 +38,7 @@ function buscarPorId(id,tipo) {
   if(id==null){
     id = new URL(location).searchParams.get('id');
     if(id == null){
-      window.location.href = "index.html";
+      home();
     }
   }
   // var tipo = new URL(location).searchParams.get('tipo')
@@ -68,7 +72,7 @@ function cadastrar() {
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
       success: function(data){
         console.log(data);
-        window.location.href = "index.html";
+        home();
       },
       error: function(data){
         alert(data.responseText);
@@ -102,7 +106,7 @@ function atualizar() {
       url: urlAtualizar,
       success: function(data){
         console.log(data);
-        window.location.href = "index.html";
+        home();
       }
     });
   });
@@ -117,7 +121,7 @@ function excluir(id) {
       url: urlExcluir,
       success: function(data){
         console.log(data);
-        window.location.href = "index.html";
+        home();
       }
     });
   }
