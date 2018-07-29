@@ -84,20 +84,21 @@ function pesquisar(){
   $('#pesquisar').click(function(){
     if(!$('#search').val().trim()){
       listarFilmes();
-      return;
     }
-    $.ajax({
-      type: 'GET',
-      url: new URL(urlRest+"/"+$( "input[name='pesquisa']:checked").val()+"/"+$('#search').val()),
-      success: function(data){
-        $('#filmes').html(data)
-      },
-      statusCode: {
-        404: function(data) {
-          alert(data.responseText);
+    else{
+      $.ajax({
+        type: 'GET',
+        url: new URL(urlRest+"/"+$( "input[name='pesquisa']:checked").val()+"/"+$('#search').val()),
+        success: function(data){
+          $('#filmes').html(data)
+        },
+        statusCode: {
+          404: function(data) {
+            alert(data.responseText);
+          }
         }
-      }
-    })
+      });
+    }
   });
 }
 
