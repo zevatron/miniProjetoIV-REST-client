@@ -126,8 +126,8 @@ function excluir(id) {
       // dataType: "json",
       url: urlExcluir,
       success: function(data){
-        console.log(data);
         home();
+        console.log(data);
       }
     });
   }
