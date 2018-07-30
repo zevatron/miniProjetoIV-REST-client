@@ -99,6 +99,8 @@ function pesquisar(){
         }
       });
     }
+    
+    return false;
   });
 }
 
