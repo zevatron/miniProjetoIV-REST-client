@@ -80,28 +80,37 @@ function cadastrar() {
     });
 }
 
-function pesquisar(){
-  $('#pesquisar').click(function(){
-    if(!$('#search').val().trim()){
-      listarFilmes();
-    }
-    else{
-      $.ajax({
-        type: 'GET',
-        url: new URL(urlRest+"/"+$( "input[name='pesquisa']:checked").val()+"/"+$('#search').val()),
-        success: function(data){
-          $('#filmes').html(data)
-        },
-        statusCode: {
-          404: function(data) {
-            alert(data.responseText);
-          }
-        }
-      });
-    }
-    
+function pressEnter(){
+  var keyPressed = event.keyCode || event.which;
+  //if ENTER is pressed
+  if(keyPressed==13){
+    pesquisar();
+    keyPressed=null;
+  }
+  else{
     return false;
-  });
+  }
+}
+
+function pesquisar(){
+  if(!$('#search').val().trim()){
+    listarFilmes();
+  }
+  else{
+    $.ajax({
+      type: 'GET',
+      url: new URL(urlRest+"/"+$( "input[name='pesquisa']:checked").val()+"/"+$('#search').val()),
+      success: function(data){
+        $('#filmes').html(data)
+      },
+      statusCode: {
+        404: function(data) {
+          alert($( "input[name='pesquisa']:checked").val()+": " + $('#search').val() + " >>> " + data.responseText);
+          $('#search').val("");
+        }
+      }
+    });
+  }
 }
 
 function atualizar() {
